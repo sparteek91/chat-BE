@@ -28,9 +28,7 @@ const mongooseOptions: Object = { useNewUrlParser: true, useCreateIndex: true, u
 const clusterUrl: string = `mongodb+srv://${process.env.CLUSTERUSER}:${process.env.CLUSTERPASS}@chatapp-cluster.6pcv6.mongodb.net/chatapp-cluster?retryWrites=true&w=majority`;
 mongoose.connect(clusterUrl, mongooseOptions).then((): void => {
     console.log('Connected to MongoDB Cluster!');
-}).catch((err: any): void => {
-    console.log(err)
-});
+}).catch((err: any): void => console.log(err));
 
 /**
  * Middlewares
