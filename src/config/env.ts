@@ -31,23 +31,23 @@ export function loadEnv() {
  */
 export function readEnvEssentials() {
     if(!process.env.CLUSTERUSER) {
-        console.error('Fatal error: cluster user is not defined');
+        console.error('Fatal error: cluster user is undefined');
         process.exit(1);
     }
     if(!process.env.CLUSTERPASS) {
-        console.error('Fatal error: cluster password is not defined');
+        console.error('Fatal error: cluster password is undefined');
         process.exit(1);
     }
     if(!process.env.PORT) {
-        console.error('Fatal error: port is not defined');
+        console.error('Fatal error: port is undefined');
         process.exit(1);
     }
     if (!process.env.JWTPRIVATEKEY) {
-        console.error('Fatal error: jwt private key is not defined');
+        console.error('Fatal error: jwt private key is undefined');
         process.exit(1);
     }
     if(!process.env.HMACSHA256SECRETKEY) {
-        console.error('Fatal error: hmac secret key is not defined');
+        console.error('Fatal error: hmac secret key is undefined');
         process.exit(1);
     }
 }

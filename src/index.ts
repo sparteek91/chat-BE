@@ -24,6 +24,7 @@ readEnvEssentials();
  * @param  clusterUrl
  * @defination: Cluster URL
  */
+
 const mongooseOptions: Object = { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true }
 const clusterUrl: string = `mongodb+srv://${process.env.CLUSTERUSER}:${process.env.CLUSTERPASS}@chatapp-cluster.6pcv6.mongodb.net/chatapp-cluster?retryWrites=true&w=majority`;
 mongoose.connect(clusterUrl, mongooseOptions).then((): void => {
