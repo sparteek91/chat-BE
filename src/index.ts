@@ -34,7 +34,8 @@ mongoose.connect(clusterUrl, mongooseOptions).then((): void => {
 /**
  * Middlewares
  */
-app.use(cors(corsOptions));
+// corsOptions
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

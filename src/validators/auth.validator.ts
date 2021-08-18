@@ -11,7 +11,10 @@ import { schemaOption } from '../utils/helpers/schema-options';
 export const loginRequestValidator = (req: any) => {
     const schema = {
         mobile: Joi.string().min(8).required().max(15),
-        password: Joi.string().min(6).required(),
+        password: Joi.when('logintype', { is: Joi.exist().valid(0), then: Joi.string().min(6).required()}),
+        otp: Joi.when('logintype', { is: Joi.exist().valid(1), then: Joi.string().max(6).required()}),
+        hash: Joi.when('logintype', { is: Joi.exist().valid(1), then: Joi.string().required()}),
+        logintype: Joi.number().required(),
     };
     const validate: Promise<any> = Joi.validate(req, schema, schemaOption);
 

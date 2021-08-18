@@ -11,6 +11,7 @@ export const messages: any = Object.freeze({
     OTP_INVALID_ERR: 'OTP is invalid or expired!',
     INVALID_TOKEN_ERR: 'Invalid token',
     ACCESS_DENIED_ERR: 'Access Denied!',
+    UNKNOWN_ERR: 'Something went wrong, please try again after some time!',
 
     // success messages
     FORGOT_PASSWORD_SUCCESS: 'A reset password link is sent to ',
@@ -29,9 +30,10 @@ export const messages: any = Object.freeze({
 
 // CORS options
 export const corsOptions: CorsOptions = {
+    origin: "*",
+    methods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token'],
     credentials: true,
-    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-    origin: '',
     preflightContinue: false,
 };
