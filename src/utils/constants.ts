@@ -14,13 +14,13 @@ export const messages: any = Object.freeze({
     UNKNOWN_ERR: 'Something went wrong, please try again after some time!',
 
     // success messages
+    LOGIN_SUCCESS: 'Logged in Successfully!',
+    REGISTER_SUCCESS: 'Registered Successfully!',
+    OTP_SENT_SUCCESS: 'OTP sent Successfully!',
     FORGOT_PASSWORD_SUCCESS: 'A reset password link is sent to ',
     PASSWORD_UPDATED: 'Password updated!',
     IMAGE_UPLOAD_SUCCESS: 'Image uploaded!',
     USER_UPDATED_SUCCESS: 'User updates successfully',
-    LOGIN_SUCCESS: 'Logged in Successfully!',
-    REGISTER_SUCCESS: 'Registered Successfully!',
-    OTP_SENT_SUCCESS: 'OTP sent to your email',
 
     // OTHERS
     MAILTYPE_FORGOT_PASSWORD: 'forgotpassword',

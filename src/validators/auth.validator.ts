@@ -56,7 +56,8 @@ export const SignupRequestValidator = (req: any) => {
  */
 export const getOtpRequestValidator = (req: any) => {
     const schema = {
-        mobile: Joi.string().min(8).required().max(15)
+        mobile: Joi.string().min(8).required().max(15),
+        action: Joi.string().required()
     };
     const validate: Promise<any> = Joi.validate(req, schema, schemaOption);
 
