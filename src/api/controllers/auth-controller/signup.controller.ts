@@ -29,7 +29,6 @@ export const signUpAction = asyncTryCatch(async (req: Request, res: Response) =>
             message: error[0].message
         });
     }
-
     let user: IUser | any = await User.findOne({ mobile: req.body.mobile });
     if (user) {
         return res.status(400).send({
@@ -48,6 +47,7 @@ export const signUpAction = asyncTryCatch(async (req: Request, res: Response) =>
 
     user = new User({
         name: req.body.name,
+        email: req.body.email,
         mobile: req.body.mobile,
         password: req.body.password,
         countryCode: req.body.countryCode,
@@ -73,6 +73,7 @@ export const signUpAction = asyncTryCatch(async (req: Request, res: Response) =>
         activeted: user.activeted,
         createdAt: user.createdAt,
         status: user.status,
+        emailVerified: user.emailVerified,
         _id: user._id
     };
     return res.status(200).send({

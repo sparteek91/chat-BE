@@ -6,7 +6,7 @@ import mongoose, { Schema, Document } from 'mongoose';
  * @param: name
  * @defination: string type name of the user
  * @param: email
- * @defination: string type email of the user, default to ''
+ * @defination: string type email of the user
  * @param: mobile
  * @defination: string type mobile number of the user
  * @param: password
@@ -20,14 +20,14 @@ import mongoose, { Schema, Document } from 'mongoose';
  * @param: avatar
  * @defination: string type path to the user uploaded avatar aka dp aka profile pic, defaults to ''
  * @param: activated
- * @defination: boolean associated with wheather the user has verified their account, defaults to false
+ * @defination: boolean associated with wheather the user has verified their account(mobile), defaults to false
  * @param: status
  * @defination: number type associated with status hard delete: 2, soft delete: 1, none: 0, default to 0  
  */
 
 const UserSchema: Schema = new mongoose.Schema({
     name: { type: String, trim: true, required: true },
-    email: { type: String, trim: true, unique: true, lowercase: true, default: '' },
+    email: { type: String, trim: true, unique: false, lowercase: true, required: true },
     mobile: { type: String, trim: true, unique: true, required: true, minlength: 8, maxlength: 15 },
     password: { type: String, trim: true, required: true, minlength: 6 },
     countryCode: { type: String, trim: true, required: true },
@@ -35,6 +35,7 @@ const UserSchema: Schema = new mongoose.Schema({
     terms: { type: Boolean, required: true },
     avatar: { type: String, default: '' },
     activeted: { type: Boolean, default: false },
+    emailVerified: { type: Boolean, default: false },
     status: { type: Number, default: 0 }
 }, { timestamps: true });
 

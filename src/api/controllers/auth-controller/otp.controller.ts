@@ -28,13 +28,20 @@ export const getOtpAction = asyncTryCatch(async (req: Request, res: Response) =>
             message: error[0].message
         });
     }
-
+    
+    const user: IUser | null = await User.findOne({ mobile: req.body.mobile });
     if (req.body.action === 'login') {
-        let user: IUser | null = await User.findOne({ mobile: req.body.mobile });
         if (!user) {
             return res.status(400).send({
                 status: false,
                 message: messages.USER_NOT_EXISTS
+            });
+        }
+    } else if (req.body.action === 'registration') {
+        if (user) {
+            return res.status(400).send({
+                status: false,
+                message: messages.USER_ALREADY_EXIST
             });
         }
     }
