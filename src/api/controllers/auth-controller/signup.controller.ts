@@ -17,7 +17,7 @@ import { generatejwtToken } from '../../../utils/helpers/jwt-generator';
  * @step 1: Validate the incoming request, if error return error response
  * @step 2: Check if the user already exists. if yes, return error response
  * @step 3: Check if the otp and hash exists. if not, return error response
- * @step 4: Encrypt the password using bcrypt, channge the activeted status to true and save the user
+ * @step 4: Encrypt the password using bcrypt, change the activeted status to true and save the user
  * @step 5: If all goes well, send the success response to FE that include jwt token
  */
 

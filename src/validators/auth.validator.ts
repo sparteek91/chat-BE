@@ -11,9 +11,9 @@ import { schemaOption } from '../utils/helpers/schema-options';
 export const loginRequestValidator = (req: any) => {
     const schema = {
         mobile: Joi.string().min(8).required().max(15),
-        password: Joi.when('logintype', { is: Joi.exist().valid(0), then: Joi.string().min(6).required()}),
-        otp: Joi.when('logintype', { is: Joi.exist().valid(1), then: Joi.string().max(6).required()}),
-        hash: Joi.when('logintype', { is: Joi.exist().valid(1), then: Joi.string().required()}),
+        password: Joi.when('logintype', { is: Joi.exist().valid(0), then: Joi.string().min(6).required() }),
+        otp: Joi.when('logintype', { is: Joi.exist().valid(1), then: Joi.string().max(6).required() }),
+        hash: Joi.when('logintype', { is: Joi.exist().valid(1), then: Joi.string().required() }),
         logintype: Joi.number().required(),
     };
     const validate: Promise<any> = Joi.validate(req, schema, schemaOption);
@@ -52,14 +52,34 @@ export const SignupRequestValidator = (req: any) => {
 /**
  * Title: Get OTP Request Validator
  * @param req 
- * @defination: Validates in incoming request for signup
+ * @defination: Validates in incoming request for get otp
  * @return Array of validation error
  */
 export const getOtpRequestValidator = (req: any) => {
     const schema = {
         mobile: Joi.string().min(8).required().max(15),
         action: Joi.string().required(),
-        email: Joi.when('action', { is: Joi.exist().valid('registration'), then: Joi.string().required()}),
+        email: Joi.when('action', { is: Joi.exist().valid('registration'), then: Joi.string().required() }),
+    };
+    const validate: Promise<any> = Joi.validate(req, schema, schemaOption);
+
+    return validate.catch(err => {
+        return err.details;
+    });
+}
+
+/**
+ * Title: Forget password Request Validator
+ * @param req 
+ * @defination: Validates in incoming request for forgot password
+ * @return Array of validation error
+ */
+export const forgetPasswordRequestValidator = (req: any) => {
+    const schema = {
+        mobile: Joi.string().min(8).required().max(15),
+        password: Joi.string().min(6).required(),
+        otp: Joi.required(),
+        hash: Joi.string().required(),
     };
     const validate: Promise<any> = Joi.validate(req, schema, schemaOption);
 

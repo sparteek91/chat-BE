@@ -7,18 +7,17 @@ export const messages: any = Object.freeze({
     USER_ALREADY_EXIST: 'User already exist!',
     RESETPASSWORD_INVALIDLINK_ERR: 'Invalid Link or expired',
     IMAGE_TYPE_ERR: 'Please provide a jpg/png image!',
-    INVALID_CREDENTIALS: 'Invalid email or password',
+    INVALID_CREDENTIALS: 'Invalid mobile number or password',
     OTP_INVALID_ERR: 'OTP is invalid or expired!',
     INVALID_TOKEN_ERR: 'Invalid token',
     ACCESS_DENIED_ERR: 'Access Denied!',
     UNKNOWN_ERR: 'Something went wrong, please try again after some time!',
 
     // success messages
-    LOGIN_SUCCESS: 'Logged in Successfully!',
-    REGISTER_SUCCESS: 'Registered Successfully!',
-    OTP_SENT_SUCCESS: 'OTP sent Successfully!',
-    FORGOT_PASSWORD_SUCCESS: 'A reset password link is sent to ',
-    PASSWORD_UPDATED: 'Password updated!',
+    LOGIN_SUCCESS: 'Logged in successfully!',
+    REGISTER_SUCCESS: 'Registered successfully!',
+    OTP_SENT_SUCCESS: 'OTP sent successfully!',
+    PASSWORD_UPDATED: 'Password updated successfully!',
     IMAGE_UPLOAD_SUCCESS: 'Image uploaded!',
     USER_UPDATED_SUCCESS: 'User updates successfully',
 

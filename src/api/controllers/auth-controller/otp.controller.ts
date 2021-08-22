@@ -30,7 +30,7 @@ export const getOtpAction = asyncTryCatch(async (req: Request, res: Response) =>
     }
     
     const user: IUser | null = await User.findOne({ mobile: req.body.mobile });
-    if (req.body.action === 'login') {
+    if (req.body.action === 'login' || req.body.action === 'forgot') {
         if (!user) {
             return res.status(400).send({
                 status: false,
